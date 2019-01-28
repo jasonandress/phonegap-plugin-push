@@ -17,7 +17,10 @@ android {
         applicationId = doExtractStringFromManifest("package")
     }
 }
-
+dependencies {
+    compile 'com.github.freshdesk:freshchat-android:2.2.0'
+    compile 'com.google.android.gms:play-services-gcm:11.+'
+}
 buildscript {
 	repositories {
       jcenter()
@@ -27,7 +30,6 @@ buildscript {
   dependencies {
       classpath 'com.android.tools.build:gradle:+'
       classpath 'com.google.gms:google-services:3.0.0'
-      classpath 'com.github.freshdesk:freshchat-android:2.2.0'
   }
 }
 
