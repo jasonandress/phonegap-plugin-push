@@ -27,7 +27,7 @@ buildscript {
   dependencies {
       classpath 'com.android.tools.build:gradle:+'
       classpath 'com.google.gms:google-services:3.0.0'
-      compile 'com.github.freshdesk:freshchat-android:2.2.0'
+      classpath 'com.github.freshdesk:freshchat-android:2.2.0'
   }
 }
 
