@@ -21,7 +21,7 @@ public class PushInstanceIDListenerService extends FirebaseInstanceIdService imp
     public void onTokenRefresh() {
         // Get updated InstanceID token.
         String refreshedToken = FirebaseInstanceId.getInstance().getToken();
-        Freshchat.getInstance(this).setPushRegistrationToken(refreshedToken);
+        Freshchat.getInstance(getApplicationContext()).setPushRegistrationToken(refreshedToken);
         Log.d(LOG_TAG, "Refreshed token: " + refreshedToken);
         // TODO: Implement this method to send any registration to your app's servers.
         //sendRegistrationToServer(refreshedToken);

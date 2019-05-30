@@ -50,6 +50,8 @@ import java.security.SecureRandom;
 
 import com.freshchat.consumer.sdk.*;
 
+import com.freshchat.consumer.sdk.*;
+
 @SuppressLint("NewApi")
 public class FCMService extends FirebaseMessagingService implements PushConstants {
 
@@ -94,6 +96,11 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
       extras.putString(entry.getKey(), entry.getValue());
     }
 
+    if (Freshchat.isFreshchatNotification(extras)) {
+        Freshchat.getInstance(getApplicationContext()).handleFcmMessage(getApplicationContext(), extras);
+        return;
+    }
+    
     if (extras != null && isAvailableSender(from)) {
       Context applicationContext = getApplicationContext();
 
