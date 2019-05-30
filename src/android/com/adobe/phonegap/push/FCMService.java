@@ -76,10 +76,6 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
     String from = message.getFrom();
     Log.d(LOG_TAG, "onMessage - from: " + from);
 
-    if (Freshchat.isFreshchatNotification(message)) {
-        Freshchat.getInstance(this).handleFcmMessage(this, message);
-        return;
-    }
     Bundle extras = new Bundle();
 
     if (message.getNotification() != null) {
@@ -93,6 +89,11 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
       extras.putString(entry.getKey(), entry.getValue());
     }
 
+    if (Freshchat.isFreshchatNotification(extras)) {
+        Freshchat.getInstance(getApplicationContext()).handleFcmMessage(getApplicationContext(), extras);
+        return;
+    }
+    
     if (extras != null && isAvailableSender(from)) {
       Context applicationContext = getApplicationContext();
 
