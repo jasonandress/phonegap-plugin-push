@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Freshchat.h"
 @import UserNotifications;
 
 extern NSString *const pushPluginApplicationDidBecomeActiveNotification;
