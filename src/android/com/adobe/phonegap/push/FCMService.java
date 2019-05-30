@@ -77,11 +77,6 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
 
     String from = message.getFrom();
     Log.d(LOG_TAG, "onMessage - from: " + from);
-
-    if (Freshchat.isFreshchatNotification(message)) {
-        Freshchat.getInstance(this).handleFcmMessage(message);
-        return;
-    }
     
     Bundle extras = new Bundle();
 
